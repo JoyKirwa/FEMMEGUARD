@@ -1,14 +1,17 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View, Text } from "react-native";
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+// this is the default screen
 
-export default function TabOneScreen() {
+export default function ExplorePage() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+      <Text style={styles.title}>Exploration</Text>
+      <Text>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa ducimus
+        nulla tenetur distinctio veniam cum. Facilis quisquam distinctio dolore
+        ipsam numquam soluta explicabo dolorum laudantium in, esse accusamus,
+        doloribus hic?{" "}
+      </Text>
     </View>
   );
 }
@@ -16,16 +19,16 @@ export default function TabOneScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   separator: {
     marginVertical: 30,
     height: 1,
-    width: '80%',
+    width: "80%",
   },
 });
