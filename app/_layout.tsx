@@ -48,12 +48,18 @@ function RootLayoutNav() {
   return (
     <ThemeProvider value={DefaultTheme}>
       <Stack>
+        {/* This route can handle the signin redirect logic */}
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+
+        {/* Other pages */}
+        <Stack.Screen name="auth/signup" options={{ headerShown: false }} />
+        <Stack.Screen name="auth/signin" options={{ headerShown: false }} />
+        <Stack.Screen name="map/index" options={{ headerTitle: "Map" }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen
           name="profile/index"
           options={{ headerTitle: "Your Profile" }}
         />
-        <Stack.Screen name="maps/index" options={{ headerTitle: "Map" }} />
       </Stack>
     </ThemeProvider>
   );

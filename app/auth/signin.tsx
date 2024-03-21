@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 
-export function SignInPage() {
+export default function SignInPage() {
   return (
     <View>
       <Text> Sign In page </Text>
