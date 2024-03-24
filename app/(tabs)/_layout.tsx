@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import IonIcons from "@expo/vector-icons/Ionicons";
-import { Link, Tabs } from "expo-router";
-import { Pressable } from "react-native";
+import { Tabs } from "expo-router";
 
 import Colors from "@/constants/Colors";
 
@@ -32,14 +31,14 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="community"
+        name="network"
         options={{
-          title: "Community",
+          title: "Network",
           tabBarIcon: ({ color }) => <TabBarIcon name="people" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="settings"
+        name="more"
         options={{
           title: "Settings & More",
           tabBarIcon: ({ color }) => (

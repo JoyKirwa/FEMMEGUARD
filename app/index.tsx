@@ -8,7 +8,7 @@ export default function Root() {
   const navigation = useNavigation();
 
   // FIXME : implement actual auth state management
-  const signedUp = false;
+  const signedUp = true;
 
   useEffect(() => {
     console.log("Handling auth state navigation");
