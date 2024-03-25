@@ -11,7 +11,7 @@ const LogInPage = () => {
   function handleSubmit() {
     console.log("Attempting sign up");
     auth()
-      .createUserWithEmailAndPassword("jane.doe@example.com", "SuperSecretPassword!")
+      .createUserWithEmailAndPassword(email, password)
       .then(() => {
         console.log("User account created & signed in!");
       })
@@ -31,9 +31,19 @@ const LogInPage = () => {
   return (
     <View className="flex flex-1 py-8 px-4 justify-between" style={{ gap: 16 }}>
       <View className="flex flex-col w-full self-center">
-        <TextInput label="Email" placeholder="example@mail.domain" value={email} setValue={setEmail} />
+        <TextInput
+          label="Email"
+          placeholder="example@mail.domain"
+          value={email}
+          setValue={setEmail}
+        />
         <View className="h-8" />
-        <TextInput label="Password" placeholder="super secret passcode" value={password} setValue={setPassword} />
+        <TextInput
+          label="Password"
+          placeholder="super secret passcode"
+          value={password}
+          setValue={setPassword}
+        />
       </View>
 
       <Button title="Create Account" onClick={handleSubmit} />
