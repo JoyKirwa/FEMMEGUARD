@@ -23,20 +23,17 @@ function HomeRouter() {
   );
 }
 
-
-// auth router 
+// auth router
 export function AuthRouter() {
   return (
     <NavigationContainer>
-
-    <Stack.Navigator>
-      <Stack.Screen name={routes.Login} component={LogInPage} />
-      <Stack.Screen name={routes.Signup} component={SignUpPage} />
-    </Stack.Navigator>
+      <Stack.Navigator>
+        <Stack.Screen name={routes.Login} component={LogInPage} />
+        <Stack.Screen name={routes.Signup} component={SignUpPage} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
 
 // this is the root navigator for the app
 export default function AppRouter() {
@@ -47,7 +44,6 @@ export default function AppRouter() {
           headerShown: false,
         }}
       >
-        <Stack.Screen name={routes.Splash} component={Splash} />
         <Stack.Screen name={routes.Main} component={HomeRouter} />
       </Stack.Navigator>
     </NavigationContainer>
