@@ -30,11 +30,12 @@ function HomeRouter() {
         { name: routes.More, component: MorePage, Icon: DotsThreeOutline },
       ].map((e) => (
         <Tab.Screen
+          key={e.name}
           name={e.name}
           component={e.component}
           options={{
-            tabBarActiveTintColor : "black",
-            tabBarInactiveTintColor : "lightgray",
+            tabBarActiveTintColor: "black",
+            tabBarInactiveTintColor: "lightgray",
             tabBarLabel: e.name,
             tabBarIcon: ({ color }) => <e.Icon size={32} color={color} />,
             tabBarStyle: {
@@ -42,7 +43,7 @@ function HomeRouter() {
               paddingBottom: 12,
               height: 64,
               borderTopWidth: 2,
-              borderTopColor : "black"
+              borderTopColor: "black",
             },
           }}
         />
