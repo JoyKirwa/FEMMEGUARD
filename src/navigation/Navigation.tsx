@@ -8,6 +8,8 @@ import routes from "@/constants/routes";
 
 // screens
 import Splash from "@/pages/Splash";
+import SignUpPage from "@/pages/auth/SignUpPage";
+import LogInPage from "@/pages/auth/LogInPage";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -20,6 +22,21 @@ function HomeRouter() {
     </Tab.Navigator>
   );
 }
+
+
+// auth router 
+export function AuthRouter() {
+  return (
+    <NavigationContainer>
+
+    <Stack.Navigator>
+      <Stack.Screen name={routes.Login} component={LogInPage} />
+      <Stack.Screen name={routes.Signup} component={SignUpPage} />
+    </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
 
 // this is the root navigator for the app
 export default function AppRouter() {
