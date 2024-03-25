@@ -15,7 +15,6 @@ import MyNetworkPage from "@/pages/main/MyNetworkPage";
 import MorePage from "@/pages/main/MorePage";
 
 // custom
-import BottomTabBar from "./BottomTabBar";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -45,6 +44,10 @@ function HomeRouter() {
               borderTopWidth: 2,
               borderTopColor: "black",
             },
+            headerStyle: {
+              borderBottomWidth: 2,
+              borderBottomColor: "black",
+            }
           }}
         />
       ))}
@@ -56,9 +59,19 @@ function HomeRouter() {
 export function AuthRouter() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name={routes.Login} component={LogInPage} />
-        <Stack.Screen name={routes.Signup} component={SignUpPage} />
+      <Stack.Navigator
+      >
+        {[
+          { name: routes.Login, component: LogInPage },
+          { name: routes.Signup, component: SignUpPage },
+        ].map(e =>
+          <Stack.Screen {...e} key={e.name} options={{
+            headerStyle: {
+              borderBottomWidth: 2,
+              borderBottomColor: "black",
+            }
+          }} />
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );

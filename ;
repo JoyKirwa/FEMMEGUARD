@@ -1,25 +1,32 @@
-import { View, Text, Pressable } from "react-native";
+import { View, Text } from "react-native";
 import React, { useState } from "react";
-import auth from "@react-native-firebase/auth";
+import auth from "@react-native-firebase/auth"
 
 import TextInput from "@/components/lib/TextInput";
 import Button from "@/components/lib/Button";
 import Routes from "@/constants/routes";
 import { useNavigation } from "@react-navigation/native";
 
-const LogInPage = () => {
+
+const SignUpPage = () => {
+
   const navigation = useNavigation()
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   function handleSubmit() {
     console.log("Attempting sign up");
     auth()
-      .signInWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email, password)
       .then(() => {
-        console.log("User account signed in!");
+        console.log("User account created & signed in!");
       })
       .catch((error) => {
+        if (error.code === "auth/email-already-in-use") {
+          console.log("That email address is already in use!");
+        }
+
         if (error.code === "auth/invalid-email") {
           console.log("That email address is invalid!");
         }
@@ -50,15 +57,15 @@ const LogInPage = () => {
       <View className="flex" style={{ gap: 32 }} >
         <Pressable onPress={() => {
           console.log("rerouting")
-          navigation.navigate(Routes.Signup)
+          navigation.navigate(Routes.Login)
         }
         }>
-          <Text className="mx-4 text-slate-600 text-right font-bold italic">Don't have an account? <Text className="underline"> Sign Up </Text> </Text>
+          <Text className="mx-4 text-slate-600 text-right font-bold italic">A;ready have an account? <Text className="underline"> Log In </Text> </Text>
         </Pressable>
-        <Button title="Log In" onClick={handleSubmit} className="w-full" style={{ backgroundColor: "lightgreen" }} />
+        <Button title="Create Account" onClick={handleSubmit} className="w-full" />
       </View>
     </View >
   );
 };
 
-export default LogInPage;
+export default SignUpPage;
