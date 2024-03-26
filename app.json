@@ -26,8 +26,8 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins" : [
-    "@react-native-firebase/app",
+    "plugins": [
+      "@react-native-firebase/app",
       "@react-native-firebase/auth",
       [
         "expo-build-properties",
@@ -35,6 +35,12 @@
           "ios": {
             "useFrameworks": "static"
           }
+        }
+      ],
+      [
+        "expo-contacts",
+        {
+          "contactsPermission": "Allow $(PRODUCT_NAME) to access your contacts."
         }
       ]
     ]

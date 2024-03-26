@@ -13,11 +13,19 @@ import LogInPage from "@/pages/auth/LogInPage";
 import ExplorePage from "@/pages/main/ExplorePage";
 import MyNetworkPage from "@/pages/main/MyNetworkPage";
 import MorePage from "@/pages/main/MorePage";
+import ProfilePage from "@/pages/more/ProfilePage";
+import BlogPostPage from "@/pages/more/BlogPostPage";
 
 // custom
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+
+// shared styling
+const headerStyle = {
+  borderBottomWidth: 2,
+  borderBottomColor: "black",
+};
 
 // this contains the homepage (main) tab layout
 function HomeRouter() {
@@ -44,10 +52,7 @@ function HomeRouter() {
               borderTopWidth: 2,
               borderTopColor: "black",
             },
-            headerStyle: {
-              borderBottomWidth: 2,
-              borderBottomColor: "black",
-            }
+            headerStyle,
           }}
         />
       ))}
@@ -59,19 +64,19 @@ function HomeRouter() {
 export function AuthRouter() {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-      >
+      <Stack.Navigator>
         {[
           { name: routes.Login, component: LogInPage },
           { name: routes.Signup, component: SignUpPage },
-        ].map(e =>
-          <Stack.Screen {...e} key={e.name} options={{
-            headerStyle: {
-              borderBottomWidth: 2,
-              borderBottomColor: "black",
-            }
-          }} />
-        )}
+        ].map((e) => (
+          <Stack.Screen
+            {...e}
+            key={e.name}
+            options={{
+              headerStyle,
+            }}
+          />
+        ))}
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -83,10 +88,21 @@ export default function AppRouter() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
-          headerShown: false,
+          headerShown: true,
+          headerStyle,
         }}
       >
-        <Stack.Screen name={routes.Main} component={HomeRouter} />
+        <Stack.Screen
+          name={routes.Main}
+          component={HomeRouter}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen name={routes.Profile} component={ProfilePage} />
+        <Stack.Screen
+          name={routes.BlogPost}
+          component={BlogPostPage}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

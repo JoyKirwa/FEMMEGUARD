@@ -1,16 +1,14 @@
 import { View, Text, Pressable } from "react-native";
 import React, { useState } from "react";
-import auth from "@react-native-firebase/auth"
+import auth from "@react-native-firebase/auth";
 
 import TextInput from "@/components/lib/TextInput";
 import Button from "@/components/lib/Button";
 import Routes from "@/constants/routes";
 import { useNavigation } from "@react-navigation/native";
 
-
 const SignUpPage = () => {
-
-  const navigation = useNavigation()
+  const navigation = useNavigation();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -53,18 +51,25 @@ const SignUpPage = () => {
         />
       </View>
 
-
-      <View className="flex" style={{ gap: 32 }} >
-        <Pressable onPress={() => {
-          console.log("rerouting")
-          navigation.navigate(Routes.Login)
-        }
-        }>
-          <Text className="mx-4 text-slate-600 text-right font-bold italic">Already have an account? <Text className="underline"> Log In </Text> </Text>
+      <View className="flex" style={{ gap: 32 }}>
+        <Pressable
+          onPress={() => {
+            console.log("rerouting");
+            navigation.navigate(Routes.Login);
+          }}
+        >
+          <Text className="mx-4 text-slate-600 text-right font-bold italic">
+            Already have an account? <Text className="underline"> Log In </Text>{" "}
+          </Text>
         </Pressable>
-        <Button title="Create Account" onClick={handleSubmit} className="w-full" style={{ backgroundColor: "lightblue" }} />
+        <Button
+          title="Create Account"
+          onClick={handleSubmit}
+          className="w-full"
+          style={{ backgroundColor: "lightblue" }}
+        />
       </View>
-    </View >
+    </View>
   );
 };
 

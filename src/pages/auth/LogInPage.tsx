@@ -8,7 +8,7 @@ import Routes from "@/constants/routes";
 import { useNavigation } from "@react-navigation/native";
 
 const LogInPage = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -46,18 +46,25 @@ const LogInPage = () => {
         />
       </View>
 
-
-      <View className="flex" style={{ gap: 32 }} >
-        <Pressable onPress={() => {
-          console.log("rerouting")
-          navigation.navigate(Routes.Signup)
-        }
-        }>
-          <Text className="mx-4 text-slate-600 text-right font-bold italic">Don't have an account? <Text className="underline"> Sign Up </Text> </Text>
+      <View className="flex" style={{ gap: 32 }}>
+        <Pressable
+          onPress={() => {
+            console.log("rerouting");
+            navigation.navigate(Routes.Signup);
+          }}
+        >
+          <Text className="mx-4 text-slate-600 text-right font-bold italic">
+            Don't have an account? <Text className="underline"> Sign Up </Text>{" "}
+          </Text>
         </Pressable>
-        <Button title="Log In" onClick={handleSubmit} className="w-full" style={{ backgroundColor: "lightgreen" }} />
+        <Button
+          title="Log In"
+          onClick={handleSubmit}
+          className="w-full"
+          style={{ backgroundColor: "lightgreen" }}
+        />
       </View>
-    </View >
+    </View>
   );
 };
 

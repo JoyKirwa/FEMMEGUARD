@@ -5,7 +5,7 @@ interface ButtonProps {
   title?: string;
   onClick: () => void;
   className?: string;
-  style?: any 
+  style?: any;
 }
 
 const Button = (props: ButtonProps) => {
@@ -15,7 +15,7 @@ const Button = (props: ButtonProps) => {
       style={props.style}
       onPress={props.onClick}
     >
-      <Text className="font-bold text-md text-black text-lg uppercase">
+      <Text className="font-bold text-md text-black text-md uppercase">
         {props.title}
       </Text>
     </Pressable>
