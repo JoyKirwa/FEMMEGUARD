@@ -14,6 +14,7 @@ enum Routes {
   // settings and more
   Profile = "My Profile",
   BlogPost = "Blog Post",
+  DirectMessage = "Direct Message",
 }
 
 export default Routes;

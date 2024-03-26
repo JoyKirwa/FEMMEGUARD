@@ -6,6 +6,7 @@ import TextInput from "@/components/lib/TextInput";
 import Button from "@/components/lib/Button";
 import Routes from "@/constants/routes";
 import { useNavigation } from "@react-navigation/native";
+import { showToast } from "@/utils/toast";
 
 const SignUpPage = () => {
   const navigation = useNavigation();
@@ -14,19 +15,19 @@ const SignUpPage = () => {
   const [password, setPassword] = useState("");
 
   function handleSubmit() {
-    console.log("Attempting sign up");
+    showToast("Attempting sign up");
     auth()
-      .createUserWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email.trim(), password.trim())
       .then(() => {
-        console.log("User account created & signed in!");
+        showToast("User account created & signed in!");
       })
       .catch((error) => {
         if (error.code === "auth/email-already-in-use") {
-          console.log("That email address is already in use!");
+          showToast("That email address is already in use!");
         }
 
         if (error.code === "auth/invalid-email") {
-          console.log("That email address is invalid!");
+          showToast("That email address is invalid!");
         }
 
         console.error(error);
@@ -54,7 +55,7 @@ const SignUpPage = () => {
       <View className="flex" style={{ gap: 32 }}>
         <Pressable
           onPress={() => {
-            console.log("rerouting");
+            showToast("rerouting");
             navigation.navigate(Routes.Login);
           }}
         >

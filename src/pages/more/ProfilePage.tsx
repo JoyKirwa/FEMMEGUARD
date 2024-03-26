@@ -6,6 +6,7 @@ import auth from "@react-native-firebase/auth";
 
 import TextInput from "@/components/lib/TextInput";
 import Button from "@/components/lib/Button";
+import { showToast } from "@/utils/toast";
 
 const ProfilePage = () => {
   const [initializing, setInitializing] = useState(true);
@@ -20,8 +21,6 @@ const ProfilePage = () => {
   }
 
   const handleSave = async () => {
-    console.log(username);
-
     firestore()
       .collection("user_profiles")
       .doc(user?.uid)
@@ -29,7 +28,7 @@ const ProfilePage = () => {
         username,
       })
       .then(() => {
-        console.log("Saved!");
+        showToast("Saved!");
       });
   };
 

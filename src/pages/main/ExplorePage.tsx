@@ -37,7 +37,7 @@ const ExplorePage = () => {
   }, []);
 
   return (
-    <SafeAreaView className="bg-slate-300 flex-1">
+    <SafeAreaView className="bg-slate-200 flex-1">
       <ScrollView
         refreshControl={
           <RefreshControl refreshing={loading} onRefresh={init} />
@@ -50,22 +50,28 @@ const ExplorePage = () => {
         {posts.map((post, index) => (
           <Pressable
             onPress={() => {
-              navigation.navigate(Routes.BlogPost, {
-                post,
-              });
+              navigation.navigate(Routes.BlogPost, { post });
             }}
             key={index}
             className="border-2 rounded-lg bg-white p-2"
-            style={{ gap: 2 }}
+            style={{ gap: 12 }}
           >
-            <Image source={{ uri: post?.image }} height={340} />
+            <Image
+              source={{ uri: post?.image }}
+              height={240}
+              style={{
+                borderRadius: 4,
+                borderWidth: 2,
+                borderColor: "black",
+              }}
+            />
             <View>
               <Text className="text-xl font-bold">{post?.title}</Text>
               <Text>{post?.description}</Text>
             </View>
             <View className="justify-between flex-row">
               <Text>{formatTimeStamp(post?.date ?? "")}</Text>
-              <ArrowRight />
+              <ArrowRight weight="bold" />
             </View>
           </Pressable>
         ))}

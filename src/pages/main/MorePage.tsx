@@ -15,7 +15,7 @@ const MorePage = () => {
   };
 
   return (
-    <SafeAreaView className="bg-slate-100 flex-1 p-[10px]">
+    <SafeAreaView className="bg-slate-200 flex-1 p-[10px]">
       <View className="flex-1 justify-between">
         {/* Options group  */}
 

@@ -2,9 +2,9 @@ import { View, Text, Pressable } from "react-native";
 import React from "react";
 
 type FABProps = {
-    title?: string;
-    icon?: React.ReactNode;
-    onClick?: () => void;
+  title?: string;
+  icon?: React.ReactNode;
+  onClick?: () => void;
 };
 
 const FAB = (props: FABProps) => {
@@ -16,12 +16,14 @@ const FAB = (props: FABProps) => {
         position: "absolute",
         right: 10,
         bottom: 10,
-        gap : 10,
+        gap: 10,
       }}
     >
       {props?.icon}
 
-      {props?.title && <Text className="font-bold uppercase">{props?.title}</Text>}
+      {props?.title && (
+        <Text className="font-bold uppercase">{props?.title}</Text>
+      )}
     </Pressable>
   );
 };

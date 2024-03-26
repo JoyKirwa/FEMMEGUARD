@@ -6,6 +6,7 @@ import TextInput from "@/components/lib/TextInput";
 import Button from "@/components/lib/Button";
 import Routes from "@/constants/routes";
 import { useNavigation } from "@react-navigation/native";
+import { showToast } from "@/utils/toast";
 
 const LogInPage = () => {
   const navigation = useNavigation();
@@ -13,18 +14,18 @@ const LogInPage = () => {
   const [password, setPassword] = useState("");
 
   function handleSubmit() {
-    console.log("Attempting sign up");
+    showToast("Attempting sign up");
     auth()
-      .signInWithEmailAndPassword(email, password)
+      .signInWithEmailAndPassword(email.trim(), password.trim())
       .then(() => {
-        console.log("User account signed in!");
+        showToast("User account signed in!");
       })
       .catch((error) => {
         if (error.code === "auth/invalid-email") {
-          console.log("That email address is invalid!");
+          showToast("That email address is invalid!");
         }
 
-        console.error(error);
+        showToast(error.toString());
       });
   }
 
@@ -49,7 +50,7 @@ const LogInPage = () => {
       <View className="flex" style={{ gap: 32 }}>
         <Pressable
           onPress={() => {
-            console.log("rerouting");
+            showToast("rerouting");
             navigation.navigate(Routes.Signup);
           }}
         >

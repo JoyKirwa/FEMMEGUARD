@@ -15,6 +15,7 @@ import MyNetworkPage from "@/pages/main/MyNetworkPage";
 import MorePage from "@/pages/main/MorePage";
 import ProfilePage from "@/pages/more/ProfilePage";
 import BlogPostPage from "@/pages/more/BlogPostPage";
+import DirectMessagePage from "@/pages/more/DirectMessagePage";
 
 // custom
 
@@ -98,6 +99,13 @@ export default function AppRouter() {
           options={{ headerShown: false }}
         />
         <Stack.Screen name={routes.Profile} component={ProfilePage} />
+        <Stack.Screen
+          name={routes.DirectMessage}
+          component={DirectMessagePage}
+          options={({ route }) => ({
+            title: route.params?.user?.username ?? "Direct Message",
+          })}
+        />
         <Stack.Screen
           name={routes.BlogPost}
           component={BlogPostPage}
