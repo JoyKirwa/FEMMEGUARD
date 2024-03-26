@@ -7,6 +7,7 @@ interface FTextInputProps {
   label?: string;
   placeholder?: string;
   className?: string;
+  type?: "text" | "email" | "password";
 }
 
 const FTextInput = (props: FTextInputProps) => {
@@ -19,6 +20,7 @@ const FTextInput = (props: FTextInputProps) => {
           value={props.value}
           onChangeText={props.setValue}
           placeholder={props.placeholder}
+          secureTextEntry={props.type === "password"}
         />
       </View>
     </View>

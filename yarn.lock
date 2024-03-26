@@ -1904,11 +1904,6 @@
   dependencies:
     plist "^3.1.0"
 
-"@react-native-firebase/database@^19.1.0":
-  version "19.1.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/database/-/database-19.1.0.tgz#7c7e423aa9ac9d7bdac747dfab6e032b7b78125b"
-  integrity sha512-gN7sq4Hh4sdWvtPVY2eL19LGybRQSurhAGkzbYe9+9Aa+eMtFIC3048nDlYGm4ztCd0SjMrDihmWR/XAjnOTYg==
-
 "@react-native-firebase/firestore@^19.1.0":
   version "19.1.0"
   resolved "https://registry.yarnpkg.com/@react-native-firebase/firestore/-/firestore-19.1.0.tgz#fd771e1402ded94ddd551de64f63629faec288b8"
@@ -5938,11 +5933,6 @@ react-native-svg@14.1.0:
   dependencies:
     css-select "^5.1.0"
     css-tree "^1.1.3"
-
-react-native-toast@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/react-native-toast/-/react-native-toast-1.0.1.tgz#9fd21cb4bf7f71e226969aeba7cf8afee9618052"
-  integrity sha512-ehpE72WexAbLA4RWc/jtosCrpu/soCdS/oHBpzaLnaeNWl7tIxH8Vt7cp2PONP9Lgw/fZBoq87+OKSB4ecCezg==
 
 react-native@0.73.6:
   version "0.73.6"

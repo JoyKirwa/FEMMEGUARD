@@ -51,36 +51,31 @@ const DirectMessagePage = () => {
     return () => subscribe();
   }, []);
 
-
-
   function getMergedMessages() {
     return messages
-      .sort((a, b) => a.timestamp - b.timestamp)
       .filter(
         (e) =>
-          (
-            (e.receiver === route.params?.user?.uid &&
-              e.sender === auth().currentUser?.uid))
-          ||
+          (e.receiver === route.params?.user?.uid &&
+            e.sender === auth().currentUser?.uid) ||
           (e.sender === route.params?.user?.uid &&
             e.receiver === auth().currentUser?.uid),
-      );
+      )
+      .sort((a, b) => a.timestamp - b.timestamp);
   }
 
   return (
     <View className="flex-1">
       {/*Messages*/}
-      <View className="flex-1 bg-green-100 p-2">
-        <FlatList
-          data={getMergedMessages()}
-          renderItem={({ item }) => (
-            <Message
-              message={item}
-              isOwnedByMe={item.sender === auth().currentUser?.uid}
-            />
-          )}
-        />
-      </View>
+      <FlatList
+        className="flex-1 bg-green-100 px-2"
+        data={getMergedMessages()}
+        renderItem={({ item }) => (
+          <Message
+            message={item}
+            isOwnedByMe={item.sender === auth().currentUser?.uid}
+          />
+        )}
+      />
 
       {/*Message box*/}
       <View className="border-t-2 border-black flex-row h-[64]">
@@ -106,7 +101,7 @@ function Message({ message, isOwnedByMe }) {
     <View
       className={`
       bg-white px-4 py-2 my-1 border-2 border-b-4 rounded-xl max-w-[80%] w-fit
-      ${isOwnedByMe ? "self-end items-end" : "self-start bg-slate-400"}
+      ${isOwnedByMe ? "self-end items-end" : "self-start bg-slate-200"}
 `}
     >
       <Text

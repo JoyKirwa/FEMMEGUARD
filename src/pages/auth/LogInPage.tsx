@@ -14,11 +14,11 @@ const LogInPage = () => {
   const [password, setPassword] = useState("");
 
   function handleSubmit() {
-    showToast("Attempting sign up");
+    showToast("Logging in");
     auth()
       .signInWithEmailAndPassword(email.trim(), password.trim())
       .then(() => {
-        showToast("User account signed in!");
+        showToast("Welcom back");
       })
       .catch((error) => {
         if (error.code === "auth/invalid-email") {
@@ -37,6 +37,7 @@ const LogInPage = () => {
           placeholder="example@mail.domain"
           value={email}
           setValue={setEmail}
+          type="email"
         />
         <View className="h-8" />
         <TextInput
@@ -44,13 +45,13 @@ const LogInPage = () => {
           placeholder="super secret passcode"
           value={password}
           setValue={setPassword}
+          type="password"
         />
       </View>
 
       <View className="flex" style={{ gap: 32 }}>
         <Pressable
           onPress={() => {
-            showToast("rerouting");
             navigation.navigate(Routes.Signup);
           }}
         >

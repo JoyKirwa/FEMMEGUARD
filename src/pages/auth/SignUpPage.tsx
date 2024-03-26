@@ -13,9 +13,20 @@ const SignUpPage = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmationPassword, setConfirmationPassword] = useState("");
 
   function handleSubmit() {
-    showToast("Attempting sign up");
+    if (password.length < 0) {
+      showToast("Password too short");
+      return;
+    }
+
+    if (password !== confirmationPassword) {
+      showToast("Passwords do not match!");
+      return;
+    }
+
+    showToast("Signing up ...");
     auth()
       .createUserWithEmailAndPassword(email.trim(), password.trim())
       .then(() => {
@@ -44,18 +55,34 @@ const SignUpPage = () => {
           setValue={setEmail}
         />
         <View className="h-8" />
+
         <TextInput
           label="Password"
           placeholder="super secret passcode"
           value={password}
           setValue={setPassword}
+          type="password"
         />
+        <View className="h-4" />
+
+        <TextInput
+          label="Confirmation Password"
+          placeholder="super secret passcode"
+          value={confirmationPassword}
+          setValue={setConfirmationPassword}
+          type="password"
+        />
+        {confirmationPassword && password !== confirmationPassword && (
+          <Text className="h-4 text-pink-700">
+            {" "}
+            Passwords do not match password.{" "}
+          </Text>
+        )}
       </View>
 
       <View className="flex" style={{ gap: 32 }}>
         <Pressable
           onPress={() => {
-            showToast("rerouting");
             navigation.navigate(Routes.Login);
           }}
         >

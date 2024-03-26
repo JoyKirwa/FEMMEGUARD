@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
-import auth from '@react-native-firebase/auth';
-
+import auth from "@react-native-firebase/auth";
 
 import Navigation, { AuthRouter } from "@/navigation/Navigation";
 
-
 export default function App() {
-// Set an initializing state whilst Firebase connects
+  // Set an initializing state whilst Firebase connects
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState(null as any | null);
 
@@ -14,7 +12,7 @@ export default function App() {
   function onAuthStateChanged(user) {
     setUser(user);
     if (initializing) setInitializing(false);
-  } 
+  }
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
@@ -24,7 +22,7 @@ export default function App() {
   if (initializing) return null;
 
   if (!user) {
-    return <AuthRouter />
+    return <AuthRouter />;
   }
 
   return <Navigation />;
